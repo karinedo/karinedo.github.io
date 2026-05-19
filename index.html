@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Karine Do — IP Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --coffee:        #704934;
+  --coffee-light:  #8f6148;
+  --coffee-pale:   #ede0d6;
+  --air-blue:      #506B7E;
+  --air-blue-dark: #3a5262;
+  --air-blue-pale: #C3CFD1;
+  --powder:        #f7f5f2;
+  --powder-dark:   #ede9e4;
+  --ink:           #302C2B;
+  --muted:         #7a706a;
+  --muted-light:   #b0a8a2;
+  --border:        #dcd5ce;
+  --border-dark:   #c8bfb8;
+  --white:         #ffffff;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Lato',sans-serif;
+  background:var(--powder);
+  color:var(--ink);
+  overflow-x:hidden;
+  line-height:1.65;
+  font-weight:300;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease, transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal.rv1{transition-delay:0.1s;}
+.reveal.rv2{transition-delay:0.2s;}
+.reveal.rv3{transition-delay:0.3s;}
+
+/* ══ NAVIGATION ══ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(247,245,242,0.85);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 4rem;height:72px;
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:600;letter-spacing:0.18em;
+}
+.nav-links{
+  display:flex;gap:2.5rem;
+  font-family:'DM Mono',monospace;
+  font-size:0.68rem;letter-spacing:0.13em;
+  text-transform:uppercase;color:var(--muted);
+}
+.nav-links a{transition:color 0.2s;}
+.nav-links a:hover{color:var(--coffee);}
+.nav-cta{
+  font-family:'DM Mono',monospace;
+  font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;
+  padding:0.7rem 1.4rem;background:var(--coffee);color:#fff;
+  transition:background 0.3s;
+}
+.nav-cta:hover{background:var(--coffee-light);}
+
+/* ══ HERO ══ */
+#hero{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  min-height:100vh;
+  padding-top:72px;
+  align-items:center;
+  gap:4rem;
+  padding-left:5rem;padding-right:5rem;
+}
+.hero-left{padding:3rem 0;}
+.hero-eyebrow{
+  font-family:'DM Mono',monospace;
+  font-size:0.7rem;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--coffee);
+  margin-bottom:2rem;
+}
+.hero-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:5.8rem;font-weight:500;
+  line-height:0.95;
+  color:var(--ink);margin-bottom:1.5rem;
+}
+.hero-name .line1{display:block;}
+.hero-name .line2{display:block;font-style:italic;color:var(--coffee);}
+.hero-tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;font-style:italic;
+  font-weight:400;color:var(--ink);
+  margin-bottom:2rem;line-height:1.4;
+}
+.hero-tagline strong{font-weight:600;color:var(--coffee);}
+.hero-role{
+  font-family:'DM Mono',monospace;
+  font-size:0.72rem;letter-spacing:0.12em;
+  color:var(--muted);margin-bottom:2rem;line-height:1.9;
+}
+.hero-role span{color:var(--ink);font-weight:500;}
+.hero-bio{
+  font-size:0.96rem;color:var(--muted);
+  max-width:520px;margin-bottom:2.5rem;
+  line-height:1.75;
+}
+.hero-actions{display:flex;gap:1rem;}
+.btn{
+  font-family:'DM Mono',monospace;
+  font-size:0.72rem;letter-spacing:0.14em;
+  text-transform:uppercase;
+  padding:0.95rem 1.8rem;
+  transition:all 0.3s;display:inline-flex;align-items:center;gap:0.5rem;
+}
+.btn-primary{background:var(--coffee);color:#fff;}
+.btn-primary:hover{background:var(--coffee-light);transform:translateY(-2px);}
+
+.hero-right{padding:3rem 0;}
+.stats-eyebrow{
+  font-family:'DM Mono',monospace;
+  font-size:0.62rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--muted-light);
+  margin-bottom:2rem;padding-bottom:1rem;
+  border-bottom:1px solid var(--border);
+}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:2rem;margin-bottom:2.5rem;
+}
+.hstat{}
+.hstat-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3rem;line-height:1;
+  color:var(--coffee);letter-spacing:0.03em;
+  margin-bottom:0.3rem;
+}
+.hstat-lbl{
+  font-family:'DM Mono',monospace;
+  font-size:0.58rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);
+  line-height:1.5;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  padding:0.6rem 1rem;
+  background:var(--white);border:1px solid var(--border);
+  font-family:'DM Mono',monospace;font-size:0.62rem;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--muted);
+}
+.badge-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--coffee);
+  box-shadow:0 0 0 3px rgba(112,73,52,0.15);
+}
+
+/* ══ SECTION COMMON ══ */
+section{
+  padding:8rem 5rem;
+  position:relative;
+}
+.sec-label{
+  font-family:'DM Mono',monospace;
+  font-size:0.7rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--coffee);
+  margin-bottom:1.5rem;
+}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.8rem;font-weight:500;
+  line-height:1;color:var(--ink);
+  margin-bottom:2rem;
+}
+.sec-title em{font-style:italic;color:var(--coffee);}
+
+/* ══ ABOUT ══ */
+#about{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  gap:5rem;
+  background:var(--white);
+  align-items:start;
+}
+.about-sticky{position:sticky;top:100px;}
+.portrait-wrap{
+  margin-top:2rem;margin-bottom:1.8rem;
+}
+.portrait-slot{
+  width:100%;aspect-ratio:3/4;
+  position:relative;overflow:hidden;
+  background:var(--powder-dark);
+}
+.about-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1.35rem;
+  line-height:1.5;color:var(--coffee);
+  padding-left:1.3rem;
+  border-left:2px solid var(--coffee);
+  margin-bottom:1.5rem;
+}
+.about-meta{
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;letter-spacing:0.1em;
+  color:var(--muted);line-height:2;
+  padding-top:1.5rem;
+  border-top:1px solid var(--border);
+}
+.about-body p{
+  font-size:1rem;color:var(--muted);
+  margin-bottom:1.4rem;line-height:1.85;
+}
+.about-body p strong{color:var(--ink);font-weight:500;}
+.about-pillars{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1.2rem;margin-top:2.5rem;
+}
+.pillar{
+  padding:1.4rem;
+  background:var(--powder);
+  border-left:2px solid var(--coffee);
+}
+.pillar-title{
+  font-family:'DM Mono',monospace;
+  font-size:0.68rem;letter-spacing:0.13em;
+  text-transform:uppercase;color:var(--coffee);
+  margin-bottom:0.6rem;
+}
+.pillar-desc{
+  font-size:0.85rem;color:var(--muted);
+  line-height:1.7;
+}
+
+/* ══ PRACTICE ══ */
+#practice{
+  background:var(--air-blue-pale);
+  color:var(--ink);
+}
+.practice-intro{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:end;margin-bottom:4rem;
+}
+.practice-sub{
+  font-size:1rem;color:var(--air-blue-dark);
+  line-height:1.75;max-width:520px;
+}
+.pgrid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1.2rem;
+}
+.pcard{
+  padding:2rem 1.5rem;
+  background:rgba(255,255,255,0.45);
+  border:1px solid rgba(255,255,255,0.6);
+  position:relative;
+  transition:all 0.4s;
+  min-height:230px;
+  display:flex;flex-direction:column;
+}
+.pcard:hover{
+  background:rgba(255,255,255,0.85);
+  transform:translateY(-4px);
+}
+.pcard-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.8rem;color:var(--coffee);
+  letter-spacing:0.05em;margin-bottom:0.8rem;
+}
+.pcard-name{
+  font-family:'DM Mono',monospace;
+  font-size:0.72rem;letter-spacing:0.1em;
+  color:var(--ink);margin-bottom:0.8rem;
+  line-height:1.45;font-weight:500;
+}
+.pcard-desc{
+  font-size:0.83rem;color:var(--muted);
+  line-height:1.65;flex:1;margin-bottom:1rem;
+}
+.pcard-hl{
+  font-family:'DM Mono',monospace;
+  font-size:0.62rem;letter-spacing:0.05em;
+  color:var(--air-blue-dark);
+  padding-top:0.8rem;
+  border-top:1px solid rgba(58,82,98,0.15);
+}
+.pcard-hl strong{color:var(--coffee);font-weight:600;}
+
+/* ══ CASES — HORIZONTAL SCROLL ══ */
+#cases{background:var(--powder);}
+.cases-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:3rem;gap:2rem;flex-wrap:wrap;
+}
+.filter-row{
+  display:flex;gap:0.5rem;flex-wrap:wrap;
+}
+.fbtn{
+  font-family:'DM Mono',monospace;
+  font-size:0.62rem;letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:0.55rem 0.95rem;
+  background:transparent;color:var(--muted);
+  border:1px solid var(--border-dark);
+  transition:all 0.3s;
+}
+.fbtn.active,.fbtn:hover{
+  background:var(--coffee);color:#fff;
+  border-color:var(--coffee);
+}
+
+.cases-wrap{
+  position:relative;
+  margin:0 -5rem;
+}
+.cases-grid{
+  display:flex;
+  flex-direction:row;
+  gap:1.5rem;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  padding:1rem 5rem 2.5rem 5rem;
+  -webkit-overflow-scrolling:touch;
+}
+.cases-grid::-webkit-scrollbar{height:6px;}
+.cases-grid::-webkit-scrollbar-track{
+  background:rgba(132,84,64,0.08);border-radius:3px;
+  margin:0 5rem;
+}
+.cases-grid::-webkit-scrollbar-thumb{
+  background:var(--coffee);border-radius:3px;
+}
+.ccard{
+  flex:0 0 460px;
+  width:460px;
+  scroll-snap-align:start;
+  background:var(--white);
+  border:1px solid var(--border);
+  position:relative;
+  display:flex;flex-direction:column;
+  transition:border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.ccard:hover{
+  border-color:var(--coffee);
+  box-shadow:0 24px 56px rgba(112,73,52,0.12);
+  transform:translateY(-4px);
+}
+.ccard-img{
+  position:relative;
+  width:100%;
+  aspect-ratio:3/2;
+  background:var(--powder-dark);
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.carousel{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+.carousel-track{
+  display:flex;
+  height:100%;
+  transition:transform 0.45s cubic-bezier(.4,0,.2,1);
+}
+.carousel-slide{
+  flex:0 0 100%;
+  width:100%;height:100%;
+}
+.carousel-slide img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+}
+.carousel-slide.empty,
+.carousel-slide:has(.empty),
+.carousel-slide > span{
+  display:flex;align-items:center;justify-content:center;
+  background:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(132,84,64,0.04) 14px,rgba(132,84,64,0.04) 28px);
+  font-family:'DM Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--muted-light);
+}
+.carousel-btn{
+  position:absolute;top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,0.95);color:var(--ink);
+  width:34px;height:34px;
+  font-size:1.1rem;z-index:10;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity 0.25s,background 0.2s,color 0.2s;
+  font-family:'DM Mono',monospace;line-height:1;
+  box-shadow:0 4px 12px rgba(48,44,43,0.2);
+}
+.ccard:hover .carousel-btn{opacity:1;}
+.carousel-btn:hover{background:var(--coffee);color:#fff;}
+.carousel-btn.prev{left:10px;}
+.carousel-btn.next{right:10px;}
+.carousel-dots{
+  position:absolute;bottom:10px;left:50%;
+  transform:translateX(-50%);
+  display:flex;gap:6px;z-index:10;
+}
+.carousel-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,0.55);cursor:pointer;
+  transition:background 0.2s;
+}
+.carousel-dot.active{background:#fff;}
+
+.ccard-body{
+  padding:1.6rem;
+  display:flex;flex-direction:column;
+  flex:1;
+}
+.ccard-top{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:1rem;
+}
+.ccard-num{
+  font-family:'DM Mono',monospace;
+  font-size:0.62rem;letter-spacing:0.13em;
+  color:var(--coffee);
+}
+.ccard-badge{
+  font-family:'DM Mono',monospace;
+  font-size:0.58rem;letter-spacing:0.08em;
+  padding:0.22rem 0.6rem;
+  background:var(--air-blue-pale);
+  color:var(--air-blue-dark);
+  border:1px solid rgba(58,82,98,0.18);
+}
+.ccard-client{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.7rem;font-weight:600;
+  letter-spacing:0.03em;line-height:1.1;
+  color:var(--ink);
+  margin-bottom:0.3rem;
+}
+.ccard-sub{
+  font-size:0.82rem;color:var(--muted);
+  line-height:1.55;margin-bottom:1rem;
+}
+.ccard-stats{
+  display:flex;gap:1.5rem;flex-wrap:wrap;
+  padding:1rem 0;margin:0.8rem 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.cstat-val,.ccard-stats > div > div:first-child{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.1rem;line-height:1;
+  color:var(--coffee);letter-spacing:0.04em;
+}
+.cstat-lbl,.ccard-stats > div > div:last-child{
+  font-family:'DM Mono',monospace;
+  font-size:0.55rem;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--muted);
+  line-height:1.4;margin-top:0.25rem;
+}
+.ccard-skills{
+  display:flex;flex-wrap:wrap;gap:0.35rem;
+  margin-top:0.9rem;
+}
+.stag{
+  font-family:'DM Mono',monospace;
+  font-size:0.57rem;letter-spacing:0.06em;
+  padding:0.22rem 0.6rem;
+  background:var(--powder-dark);color:var(--muted);
+  border:1px solid var(--border);
+}
+.ccard-toggle{
+  margin-top:1rem;padding-top:0.85rem;
+  font-family:'DM Mono',monospace;
+  font-size:0.62rem;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--coffee);
+  cursor:pointer;display:flex;align-items:center;gap:0.5rem;
+  border-top:1px dashed var(--border);
+  transition:color 0.2s;
+}
+.ccard-toggle:hover{color:var(--coffee-light);}
+.ccard-detail{
+  display:none;margin-top:1rem;
+  font-size:0.85rem;line-height:1.75;
+  color:#4a3c34;font-weight:300;
+}
+.ccard-detail.open{display:block;}
+
+.scroll-btn{
+  position:absolute;top:38%;
+  transform:translateY(-50%);
+  width:52px;height:52px;border-radius:50%;
+  background:var(--white);border:1px solid var(--border);
+  color:var(--ink);font-size:1.6rem;cursor:pointer;
+  z-index:20;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(48,44,43,0.14);
+  transition:background 0.2s,color 0.2s,transform 0.2s;
+  font-family:'DM Mono',monospace;line-height:1;padding:0;
+}
+.scroll-btn:hover{
+  background:var(--coffee);color:#fff;border-color:var(--coffee);
+  transform:translateY(-50%) scale(1.05);
+}
+.scroll-prev{left:0.5rem;}
+.scroll-next{right:0.5rem;}
+
+/* ══ ENGAGEMENT ══ */
+#engagement{background:var(--white);}
+.engagement-intro{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:end;margin-bottom:3.5rem;
+}
+.engagement-sub{
+  font-size:1rem;color:var(--muted);
+  line-height:1.75;max-width:520px;
+}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:280px;
+  gap:1rem;
+}
+.gitem{
+  position:relative;overflow:hidden;
+  background:var(--powder-dark);
+  border:1px solid var(--border);
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.gitem:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 32px rgba(48,44,43,0.18);
+}
+/* Featured items span 2 rows for variety */
+.gitem:nth-child(1),
+.gitem:nth-child(8){
+  grid-row:span 2;
+}
+.gitem-bg{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transition:transform 0.6s ease;
+}
+.gitem:hover .gitem-bg{transform:scale(1.05);}
+.gitem-caption{
+  position:absolute;left:0;right:0;bottom:0;
+  background:linear-gradient(to top,rgba(48,44,43,0.92) 0%,rgba(48,44,43,0.7) 60%,transparent 100%);
+  padding:1.2rem 1rem 1rem 1rem;color:#fff;
+  z-index:2;
+}
+.gitem-caption-event{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;font-weight:500;
+  line-height:1.3;
+  margin-bottom:0.3rem;
+  color:#fff;
+}
+.gitem-caption-year{
+  font-family:'DM Mono',monospace;
+  font-size:0.58rem;letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.78);
+}
+@media(max-width:1100px){
+  .gallery-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:240px;}
+  .gitem:nth-child(1),.gitem:nth-child(8){grid-row:span 1;}
+}
+@media(max-width:700px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px;}
+}
+
+/* ══ HOW I WORK ══ */
+#how{
+  background:var(--coffee);color:#fff;
+}
+#how .sec-label{color:var(--coffee-pale);}
+#how .sec-title{color:#fff;}
+#how .sec-title em{color:var(--coffee-pale);}
+.how-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;margin-top:3rem;
+}
+.how-card{
+  padding:2rem 1.5rem;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  transition:background 0.3s;
+}
+.how-card:hover{background:rgba(255,255,255,0.1);}
+.how-card-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:500;
+  color:#fff;margin-bottom:0.8rem;
+}
+.how-card-line{
+  width:32px;height:2px;background:var(--coffee-pale);
+  margin-bottom:1rem;
+}
+.how-card-desc{
+  font-size:0.88rem;color:rgba(255,255,255,0.82);
+  line-height:1.7;
+}
+
+/* ══ CREDENTIALS ══ */
+#credentials{background:var(--powder-dark);}
+.cred-layout{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:3rem;margin-top:2.5rem;
+}
+.cred-g-title{
+  font-family:'DM Mono',monospace;
+  font-size:0.7rem;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--coffee);
+  margin-bottom:1.5rem;padding-bottom:0.8rem;
+  border-bottom:1px solid var(--border-dark);
+}
+.cred-item{
+  margin-bottom:1.8rem;
+  padding-bottom:1.2rem;
+  border-bottom:1px dashed var(--border);
+}
+.cred-item:last-child{border-bottom:none;}
+.cred-period{
+  font-family:'DM Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.1em;
+  color:var(--muted-light);margin-bottom:0.3rem;
+  text-transform:uppercase;
+}
+.cred-ttl{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;font-weight:600;
+  color:var(--ink);margin-bottom:0.2rem;
+  line-height:1.3;
+}
+.cred-org{
+  font-size:0.85rem;color:var(--muted);
+  margin-bottom:0.3rem;
+}
+.cred-note{
+  font-family:'DM Mono',monospace;
+  font-size:0.62rem;color:var(--coffee);
+  letter-spacing:0.08em;margin-top:0.3rem;
+}
+.cred-lang{margin-bottom:0.7rem;}
+.cred-lang strong{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-weight:600;color:var(--ink);
+}
+.cred-lang-lvl{
+  font-family:'DM Mono',monospace;
+  font-size:0.58rem;letter-spacing:0.08em;
+  color:var(--muted);text-transform:uppercase;
+  margin-left:0.5rem;
+}
+
+/* ══ TOOLS ══ */
+#tools{background:var(--white);}
+.tools-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0.8rem;margin-top:2.5rem;
+}
+.tool-item{
+  display:flex;align-items:center;gap:0.8rem;
+  padding:1rem 1.2rem;
+  background:var(--powder);
+  border:1px solid var(--border);
+  transition:all 0.3s;
+}
+.tool-item:hover{
+  border-color:var(--coffee);
+  transform:translateX(4px);
+}
+.tool-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--coffee);flex-shrink:0;
+}
+.tool-name{
+  font-family:'Lato',sans-serif;
+  font-size:0.85rem;font-weight:500;
+  color:var(--ink);flex:1;
+}
+.tool-cat{
+  font-family:'DM Mono',monospace;
+  font-size:0.55rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted-light);
+}
+
+/* ══ CONTACT ══ */
+#contact{
+  background:var(--air-blue);color:#fff;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:center;
+  padding-top:7rem;padding-bottom:7rem;
+}
+#contact .sec-label{color:var(--air-blue-pale);}
+.contact-h{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.8rem;font-weight:500;
+  color:#fff;line-height:1.05;margin-bottom:2rem;
+}
+.contact-h em{font-style:italic;color:var(--air-blue-pale);}
+.contact-sub{
+  font-size:1rem;color:rgba(255,255,255,0.82);
+  line-height:1.75;margin-bottom:1.8rem;
+}
+.visa-note{
+  display:inline-block;
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;letter-spacing:0.12em;
+  text-transform:uppercase;
+  padding:0.6rem 1rem;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.2);
+  margin-bottom:2rem;
+}
+.open-box{
+  padding:1.5rem;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.15);
+}
+.open-lbl{
+  font-family:'DM Mono',monospace;
+  font-size:0.62rem;letter-spacing:0.13em;
+  text-transform:uppercase;color:rgba(255,255,255,0.6);
+  margin-bottom:0.9rem;
+}
+.open-tags{
+  display:flex;flex-wrap:wrap;gap:0.5rem;
+}
+.open-tag{
+  font-family:'DM Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.1em;
+  padding:0.4rem 0.8rem;
+  background:rgba(255,255,255,0.12);
+  text-transform:uppercase;
+}
+.ci{
+  display:flex;align-items:flex-start;gap:1.5rem;
+  padding:1.2rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.15);
+}
+.ci-lbl{
+  font-family:'DM Mono',monospace;
+  font-size:0.62rem;letter-spacing:0.14em;
+  text-transform:uppercase;color:rgba(255,255,255,0.55);
+  min-width:80px;padding-top:0.2rem;
+}
+.ci-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-weight:500;color:#fff;
+}
+.ci-val:hover{color:var(--air-blue-pale);text-decoration:underline;}
+
+/* ══ FOOTER ══ */
+footer{
+  background:var(--ink);color:rgba(247,245,242,0.55);
+  padding:2.5rem 5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1.5rem;
+  font-family:'DM Mono',monospace;
+  font-size:0.62rem;letter-spacing:0.1em;
+}
+.footer-disc{
+  font-size:0.55rem;color:rgba(247,245,242,0.35);
+  max-width:520px;line-height:1.6;text-align:right;
+}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1200px){
+  .pgrid{grid-template-columns:repeat(2,1fr);}
+  .how-grid{grid-template-columns:repeat(2,1fr);}
+  .tools-grid{grid-template-columns:repeat(2,1fr);}
+  .cred-layout{grid-template-columns:1fr 1fr;}
+  .gallery-grid{grid-template-columns:repeat(3,1fr);}
+  .hero-name{font-size:4.5rem;}
+}
+@media(max-width:900px){
+  nav{padding:0 1.5rem;}
+  .nav-links{display:none;}
+  section{padding:5rem 1.5rem;}
+  #hero{
+    grid-template-columns:1fr;
+    padding-left:1.5rem;padding-right:1.5rem;
+    gap:2rem;
+  }
+  .hero-name{font-size:3.2rem;}
+  .sec-title{font-size:2.5rem;}
+  #about{grid-template-columns:1fr;gap:2rem;}
+  .about-sticky{position:static;}
+  .practice-intro,.engagement-intro{grid-template-columns:1fr;gap:1.5rem;}
+  .cred-layout,.about-pillars{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .cases-wrap{margin:0 -1.5rem;}
+  .cases-grid{padding-left:1.5rem;padding-right:1.5rem;}
+  .ccard{flex:0 0 320px;width:320px;}
+  .scroll-btn{display:none;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  #contact{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem;}
+  .contact-h{font-size:2.5rem;}
+  footer{padding:1.5rem;flex-direction:column;text-align:center;}
+  .footer-disc{text-align:center;}
+}
+
+/* ── LANGUAGES ── */
+.lang-section{
+  margin-top:4.5rem;
+  padding-top:3rem;
+  border-top:1px solid var(--border-dark);
+}
+.lang-section-head{
+  display:flex;align-items:center;gap:1.5rem;
+  margin-bottom:2rem;
+}
+.lang-section-label{
+  font-family:'DM Mono',monospace;
+  font-size:0.7rem;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--coffee);
+  white-space:nowrap;
+}
+.lang-section-divider{
+  flex:1;height:1px;background:var(--border-dark);
+}
+.lang-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--border);
+  background:var(--white);
+}
+.lang-card{
+  padding:2rem 2rem;
+  border-right:1px solid var(--border);
+  transition:background 0.3s;
+  position:relative;
+}
+.lang-card:last-child{border-right:none;}
+.lang-card:hover{background:var(--powder);}
+.lang-card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;
+  width:36px;height:2px;
+  background:var(--coffee);
+}
+.lang-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;font-weight:500;
+  color:var(--ink);line-height:1;
+  margin-bottom:0.5rem;
+  margin-top:0.4rem;
+}
+.lang-level{
+  font-family:'DM Mono',monospace;
+  font-size:0.62rem;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--coffee);
+  margin-bottom:1rem;
+}
+
+@media(max-width:900px){
+  .lang-grid{grid-template-columns:1fr;}
+  .lang-card{
+    border-right:none;
+    border-bottom:1px solid var(--border);
+  }
+  .lang-card:last-child{border-bottom:none;}
+}}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Karine Do</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#practice">Practice</a></li>
+    <li><a href="#cases">Cases</a></li>
+    <li><a href="#engagement">Engagement</a></li>
+    <li><a href="#how">How I Work</a></li>
+    <li><a href="#credentials">Credentials</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:dt.phuongthao99@gmail.com">Get In Touch</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">IP Strategy · Brand Protection · Legal Advisory</div>
+    <h1 class="hero-name">
+      <span class="line1">Phuong Thao</span>
+      <span class="line2">(Karine) Do</span>
+    </h1>
+    <p class="hero-tagline">
+      Four years protecting global brands in the field.<br><strong>Now sharpening the edge at UCL.</strong>
+    </p>
+    <div class="hero-role">
+      <span>IP Specialist</span> · Baker McKenzie &nbsp;·&nbsp; 2021–2025<br>
+      LLM Intellectual Property Law · <span>UCL</span> · 2025–2026
+    </div>
+    <p class="hero-bio">
+      From brand protection and enforcement operations to trademark prosecution, copyright strategy, and data privacy compliance — I bring full-spectrum IP expertise built across 4 years at Baker McKenzie, serving global brands across APAC. Authorised to work in the UK without visa sponsorship.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#cases">View Case Studies</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stats-eyebrow">By the numbers · 2021–2025</div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-num">500+</div><div class="hstat-lbl">Contentious Trademark Matters</div></div>
+      <div class="hstat"><div class="hstat-num">800+</div><div class="hstat-lbl">Trademark Filings</div></div>
+      <div class="hstat"><div class="hstat-num">350+</div><div class="hstat-lbl">Enforcement Actions</div></div>
+      <div class="hstat"><div class="hstat-num">100+</div><div class="hstat-lbl">UDRP Complaints</div></div>
+      <div class="hstat"><div class="hstat-num">~80%</div><div class="hstat-lbl">Takedown Success Rate</div></div>
+      <div class="hstat"><div class="hstat-num">~85%</div><div class="hstat-lbl">UDRP Recovery Rate</div></div>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      <div class="badge-txt">Experience built at Baker McKenzie Vietnam</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-sticky reveal">
+    <div class="sec-label">01 · About</div>
+    <h2 class="sec-title">Full-spectrum<br>IP <em>expertise.</em></h2>
+    <div class="portrait-wrap">
+      <div class="portrait-slot" id="portrait-slot">
+        <img src="images/img-01-df76e3f250f7.jpg" alt="Karine Do" style="width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;inset:0;">
+      </div>
+    </div>
+    <p class="about-quote">"Curious enough to say yes. Stubborn enough to figure it out."</p>
+    <div class="about-meta">
+      London, United Kingdom<br>
+      English · Vietnamese · Mandarin<br>
+      UCL Global Masters Scholar 2025
+    </div>
+
+  </div>
+  <div class="about-body reveal rv1">
+    <p>I'm Karine, an IP Specialist currently completing my LLM in Intellectual Property Law at University College London on a UCL Global Masters Scholarship. Before London, I spent 4 years at Baker McKenzie Vietnam managing the full spectrum of IP and brand protection work — from enforcement operations, digital anti-counterfeiting, and online brand protection to trademark prosecution, copyright strategy, and data privacy compliance — for 100+ multinational clients across luxury fashion, beauty, hospitality, entertainment, and technology.</p>
+    <p>I am open-minded, approachable, and genuinely enjoy connecting with IP professionals across different markets. My time at a global law firm shaped the way I communicate, collaborate, and build relationships across cultures.</p>
+    <p>After completing my LLM in London, I am now open to new challenges and excited to bring my international IP and brand protection experience into a new professional environment. I bring a positive, can-do attitude to new opportunities, and my love for fashion, design, and beauty gives me a natural connection to the brands and creative industries I work with.</p>
+    <div class="pillars">
+      <div class="pillar"><div class="pillar-name">PORTFOLIO & PROSECUTION</div><div class="pillar-desc">TM filings, oppositions, cancellations, clearance searches across APAC jurisdictions</div></div>
+      <div class="pillar"><div class="pillar-name">ADVISORY & TRANSACTIONS</div><div class="pillar-desc">Licensing, assignments, copyright strategy, NDAs, platform cooperation agreements</div></div>
+      <div class="pillar"><div class="pillar-name">ENFORCEMENT OPERATIONS</div><div class="pillar-desc">Police raids, customs seizures, online takedowns, UDRP complaints across APAC</div></div>
+      <div class="pillar"><div class="pillar-name">PRIVACY & COMPLIANCE</div><div class="pillar-desc">GDPR-aligned privacy frameworks, HR data documents, platform compliance</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="practice">
+  <div class="practice-intro reveal">
+    <div>
+      <div class="sec-label">02 · Practice Areas</div>
+      <h2 class="sec-title">Eight<br><em>specialisms.</em></h2>
+    </div>
+    <p class="practice-sub">Covering the full lifecycle of intellectual property — from registration and prosecution through commercialisation, enforcement, and compliance. Built across 4 years and 100+ clients at Baker McKenzie.</p>
+  </div>
+  <div class="pgrid">
+    <div class="pcard reveal"><div class="pcard-num">01</div><div class="pcard-name">TRADEMARK PORTFOLIO MANAGEMENT</div><div class="pcard-desc">End-to-end portfolio strategy across APAC — filings, renewals, watch services, and multi-jurisdiction coordination for 100+ clients.</div><div class="pcard-hl"><strong>800+</strong> filings · <strong>300+</strong> clearance searches</div></div>
+    <div class="pcard reveal rv1"><div class="pcard-num">02</div><div class="pcard-name">CONTENTIOUS TRADEMARK MATTERS</div><div class="pcard-desc">Opposition, appeal, cancellation, and invalidation proceedings — protecting client registrations and blocking conflicting marks.</div><div class="pcard-hl"><strong>500+</strong> proceedings · <strong>~80%</strong> success rate</div></div>
+    <div class="pcard reveal rv2"><div class="pcard-num">03</div><div class="pcard-name">BRAND ENFORCEMENT &amp; ANTI-COUNTERFEITING</div><div class="pcard-desc">Multi-agency enforcement operations — intelligence gathering, police-led raids, customs seizures, and criminal escalation for global brands.</div><div class="pcard-hl"><strong>350+</strong> actions · <strong>10</strong> criminal escalations</div></div>
+    <div class="pcard reveal rv3"><div class="pcard-num">04</div><div class="pcard-name">ONLINE &amp; PLATFORM ENFORCEMENT</div><div class="pcard-desc">Cease-and-desist campaigns, e-commerce takedowns, UDRP complaints, and platform policy drafting for digital brand protection.</div><div class="pcard-hl"><strong>350+</strong> actions · <strong>100+</strong> UDRPs · <strong>~85%</strong> recovery</div></div>
+  </div>
+  <div class="pgrid">
+    <div class="pcard reveal"><div class="pcard-num">05</div><div class="pcard-name">DATA PRIVACY &amp; COMPLIANCE</div><div class="pcard-desc">Drafting GDPR-aligned privacy notices and compliance frameworks for multinational clients operating in APAC.</div><div class="pcard-hl">GDPR · PDPD · HR Documentation</div></div>
+    <div class="pcard reveal rv1"><div class="pcard-num">06</div><div class="pcard-name">COMMERCIAL IP ADVISORY</div><div class="pcard-desc">Licensing agreements, assignments, coexistence agreements, NDAs, and platform cooperation frameworks across luxury, tech, and consumer sectors.</div><div class="pcard-hl"><strong>300+</strong> commercial documents</div></div>
+    <div class="pcard reveal rv2"><div class="pcard-num">07</div><div class="pcard-name">COPYRIGHT PROTECTION</div><div class="pcard-desc">Advising on copyright strategy and managing copyright registrations for global entertainment brands and media companies in APAC.</div><div class="pcard-hl">Registration · Advisory · Enforcement</div></div>
+    <div class="pcard reveal rv3"><div class="pcard-num">08</div><div class="pcard-name">TRAINING &amp; CAPACITY BUILDING</div><div class="pcard-desc">Designing and delivering brand identification and anti-counterfeiting training for enforcement authorities and stakeholders.</div><div class="pcard-hl"><strong>30+</strong> sessions · APAC-wide</div></div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="cases-top">
+    <div class="reveal">
+      <div class="sec-label">03 · Case Studies</div>
+      <h2 class="sec-title">Selected<br><em>work.</em></h2>
+    </div>
+    <div class="filter-row">
+      <button class="fbtn active" data-f="all">All</button>
+      <button class="fbtn" data-f="trademark">Trademark</button>
+      <button class="fbtn" data-f="enforcement">Enforcement</button>
+      <button class="fbtn" data-f="digital">Digital</button>
+      <button class="fbtn" data-f="copyright">Copyright</button>
+      <button class="fbtn" data-f="privacy">Privacy</button>
+      <button class="fbtn" data-f="advisory">Advisory</button>
+      <button class="fbtn" data-f="training">Training</button>
+    </div>
+  </div>
+  <div class="cases-wrap">
+    <button class="scroll-btn scroll-prev" onclick="scrollCases(-1)" aria-label="Previous">‹</button>
+    <button class="scroll-btn scroll-next" onclick="scrollCases(1)" aria-label="Next">›</button>
+    <div class="cases-grid" id="casesScroll">
+      <div class="ccard reveal" data-cat="enforcement">
+        <div class="ccard-img">
+          <div class="carousel" id="c1" data-idx="0">
+            <div class="carousel-track"><div class="carousel-slide"><img src="images/img-02-e3631c1d599b.jpg" alt="Case 01 Lacoste cover"></div><div class="carousel-slide"><img src="images/img-03-5367b98dc5a0.jpg" alt="Lacoste 2"></div><div class="carousel-slide"><img src="images/img-04-d4b4f1532d90.jpg" alt="Lacoste 3"></div><div class="carousel-slide"><img src="images/img-05-df132688d998.jpg" alt="Lacoste 4"></div></div>
+            <button class="carousel-btn prev" onclick="carouselMove('c1',-1)" aria-label="Previous">&#8249;</button>
+              <button class="carousel-btn next" onclick="carouselMove('c1',1)" aria-label="Next">&#8250;</button>
+            <div class="carousel-dots"><div class="carousel-dot active" onclick="carouselDot('c1',0)"></div><div class="carousel-dot" onclick="carouselDot('c1',1)"></div><div class="carousel-dot" onclick="carouselDot('c1',2)"></div><div class="carousel-dot" onclick="carouselDot('c1',3)"></div></div>
+          </div>
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-top">
+            <span class="ccard-num">Case 01</span>
+            <span class="ccard-badge">Enforcement</span>
+          </div>
+          <div class="ccard-client">LACOSTE</div>
+          <div class="ccard-sub">Enforcement Raid</div>
+          <div class="ccard-stats"><div><div class="cstat-val">3,650+</div><div class="cstat-lbl">Finished goods seized</div></div><div><div class="cstat-val">12,890+</div><div class="cstat-lbl">Material pieces seized</div></div></div>
+          <div class="ccard-skills"><span class="stag">Police Coordination</span><span class="stag">Raid Management</span><span class="stag">Evidence Documentation</span><span class="stag">Test Purchase</span></div>
+          <button class="ccard-toggle" onclick="toggleCase(this)">Read more ↓</button>
+          <div class="ccard-detail">This case began with intelligence identifying a manufacturing facility suspected of producing counterfeit goods at scale. The risk went beyond products ready for sale, as the site also held materials and components indicating an active production chain.
+
+I supported the action from pre-raid preparation to execution, including intelligence review, police briefing, and on-site evidence documentation. The raid helped disrupt not only the circulation of counterfeit goods, but also the manufacturing capacity behind the operation.</div>
+        </div>
+      </div>
+      <div class="ccard reveal" data-cat="enforcement">
+        <div class="ccard-img">
+          <div class="carousel" id="c2" data-idx="0">
+            <div class="carousel-track"><div class="carousel-slide"><img src="images/img-06-075ffdd0d3f3.jpg" alt="Case 02 Kering cover"></div></div>
+            
+            <div class="carousel-dots"><div class="carousel-dot active" onclick="carouselDot('c2',0)"></div></div>
+          </div>
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-top">
+            <span class="ccard-num">Case 02</span>
+            <span class="ccard-badge">Enforcement · Customs</span>
+          </div>
+          <div class="ccard-client">KERING</div>
+          <div class="ccard-sub">Enforcement Raid</div>
+          <div class="ccard-stats"><div><div class="cstat-val">9,000+</div><div class="cstat-lbl">Hangtags seized</div></div><div><div class="cstat-val">1,000+</div><div class="cstat-lbl">Belts seized</div></div><div><div class="cstat-val">137</div><div class="cstat-lbl">Customs intercepts</div></div></div>
+          <div class="ccard-skills"><span class="stag">Multi-agency Ops</span><span class="stag">Customs Enforcement</span><span class="stag">Supply Chain</span><span class="stag">Cross-border IP</span></div>
+          <button class="ccard-toggle" onclick="toggleCase(this)">Read more ↓</button>
+          <div class="ccard-detail">This matter traced counterfeit activity beyond retail sellers and into the wider supply chain, covering wholesale distributors, transporters, and cross-border transit routes. The work required coordination across major cities and border provinces, where enforcement priorities often shifted with the movement of goods.
+
+I supported a sustained enforcement programme for a global luxury group's portfolio, helping prepare targeted actions, liaise with authorities, and document seizures across both market and customs contexts.</div>
+        </div>
+      </div>
+      <div class="ccard reveal" data-cat="trademark advisory">
+        <div class="ccard-img">
+          <div class="carousel" id="c3" data-idx="0">
+            <div class="carousel-track"><div class="carousel-slide"><img src="images/img-07-4ce44e9bd4e2.jpg" alt="Case 03 Trademark Portfolio cover"></div></div>
+            
+            <div class="carousel-dots"><div class="carousel-dot active" onclick="carouselDot('c3',0)"></div></div>
+          </div>
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-top">
+            <span class="ccard-num">Case 03</span>
+            <span class="ccard-badge">TM Management</span>
+          </div>
+          <div class="ccard-client">DANONE · LOUIS VUITTON · MARRIOTT</div>
+          <div class="ccard-sub">Trademark monitoring · Portfolio management</div>
+          
+          <div class="ccard-skills"><span class="stag">TM Watching</span><span class="stag">Conflict Analysis</span><span class="stag">Portfolio Reporting</span><span class="stag">Client Advisory</span></div>
+          <button class="ccard-toggle" onclick="toggleCase(this)">Read more ↓</button>
+          <div class="ccard-detail">This matter was built around early risk detection. I monitored third-party use, conflicting applications, and potential infringement signals affecting the client's portfolio.
+
+The report helped turn watch findings into clear enforcement priorities, supporting decisions on whether to act, investigate further, or continue monitoring.</div>
+        </div>
+      </div>
+      <div class="ccard reveal" data-cat="enforcement advisory">
+        <div class="ccard-img">
+          <div class="carousel" id="c4" data-idx="0">
+            <div class="carousel-track"><div class="carousel-slide"><img src="images/img-08-5a16155e0881.jpg" alt="Ralph Lauren 1"></div><div class="carousel-slide"><img src="images/img-09-b5b05744779a.jpg" alt="Ralph Lauren 2"></div><div class="carousel-slide"><img src="images/img-10-3f094790d5e9.jpg" alt="Ralph Lauren 3"></div><div class="carousel-slide"><img src="images/img-11-2cc73bd46313.jpg" alt="Ralph Lauren 4"></div></div>
+            <button class="carousel-btn prev" onclick="carouselMove('c4',-1)" aria-label="Previous">&#8249;</button>
+              <button class="carousel-btn next" onclick="carouselMove('c4',1)" aria-label="Next">&#8250;</button>
+            <div class="carousel-dots"><div class="carousel-dot active" onclick="carouselDot('c4',0)"></div><div class="carousel-dot" onclick="carouselDot('c4',1)"></div><div class="carousel-dot" onclick="carouselDot('c4',2)"></div><div class="carousel-dot" onclick="carouselDot('c4',3)"></div></div>
+          </div>
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-top">
+            <span class="ccard-num">Case 04</span>
+            <span class="ccard-badge">Market Intelligence</span>
+          </div>
+          <div class="ccard-client">RALPH LAUREN</div>
+          <div class="ccard-sub">Market survey report</div>
+          
+          <div class="ccard-skills"><span class="stag">Market Investigation</span><span class="stag">Report Drafting</span><span class="stag">Evidence Compilation</span><span class="stag">Legal Analysis</span></div>
+          <button class="ccard-toggle" onclick="toggleCase(this)">Read more ↓</button>
+          <div class="ccard-detail">This matter began with field findings showing counterfeit goods circulating in target markets. I prepared a structured market survey report combining investigation notes, photographic evidence, and legal analysis.
+
+The report helped turn on-the-ground findings into practical enforcement intelligence, supporting the client's decision on whether and how to proceed with further action.</div>
+        </div>
+      </div>
+      <div class="ccard reveal" data-cat="copyright">
+        <div class="ccard-img">
+          <div class="carousel" id="c5" data-idx="0">
+            <div class="carousel-track"><div class="carousel-slide"><img src="images/img-12-31dbba0da6b0.jpg" alt="Copyright Entertainment Media cover"></div></div>
+            
+            <div class="carousel-dots"><div class="carousel-dot active" onclick="carouselDot('c5',0)"></div></div>
+          </div>
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-top">
+            <span class="ccard-num">Case 05</span>
+            <span class="ccard-badge">Copyright</span>
+          </div>
+          <div class="ccard-client">ENTERTAINMENT &amp; MEDIA CLIENTS</div>
+          <div class="ccard-sub">Copyright Protection Strategy</div>
+          
+          <div class="ccard-skills"><span class="stag">Copyright Advisory</span><span class="stag">Copyright Registration</span><span class="stag">IP Strategy</span><span class="stag">Document Drafting</span></div>
+          <button class="ccard-toggle" onclick="toggleCase(this)">Read more ↓</button>
+          <div class="ccard-detail">This matter focused on protecting creative assets across APAC markets, where copyright registration and supporting documentation can strengthen future enforcement.
+
+I advised entertainment and media clients on rights clearance, local copyright filings, and evidence preparation, helping ensure their works were properly documented and enforceable in regional markets.</div>
+        </div>
+      </div>
+      <div class="ccard reveal" data-cat="enforcement advisory">
+        <div class="ccard-img">
+          <div class="carousel" id="c6" data-idx="0">
+            <div class="carousel-track"><div class="carousel-slide"><img src="images/img-13-2db25f0bf770.jpg" alt="Platform Cooperation cover"></div></div>
+            
+            <div class="carousel-dots"><div class="carousel-dot active" onclick="carouselDot('c6',0)"></div></div>
+          </div>
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-top">
+            <span class="ccard-num">Case 06</span>
+            <span class="ccard-badge">Platform Cooperation</span>
+          </div>
+          <div class="ccard-client">A GLOBAL BEAUTY GROUP</div>
+          <div class="ccard-sub">Platform cooperation agreements · Data disclosure</div>
+          
+          <div class="ccard-skills"><span class="stag">Platform Cooperation</span><span class="stag">NDA Drafting</span><span class="stag">Data Disclosure</span><span class="stag">Privacy-IP Intersection</span></div>
+          <button class="ccard-toggle" onclick="toggleCase(this)">Read more ↓</button>
+          <div class="ccard-detail">This matter focused on unlocking seller data for counterfeit investigations in a legally compliant way. I advised a global beauty group on NDAs and platform cooperation agreements, balancing data protection, confidentiality, and IP enforcement needs.
+
+The agreed framework enabled lawful disclosure of investigation-critical information and supported more targeted action against online counterfeit sellers.</div>
+        </div>
+      </div>
+      <div class="ccard reveal" data-cat="advisory trademark">
+        <div class="ccard-img">
+          <div class="carousel" id="c7" data-idx="0">
+            <div class="carousel-track"><div class="carousel-slide"><img src="images/img-14-bd83dd0b1ae3.jpg" alt="Grab IP Transactions cover"></div></div>
+            
+            <div class="carousel-dots"><div class="carousel-dot active" onclick="carouselDot('c7',0)"></div></div>
+          </div>
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-top">
+            <span class="ccard-num">Case 07</span>
+            <span class="ccard-badge">IP Transactions</span>
+          </div>
+          <div class="ccard-client">GRAB</div>
+          <div class="ccard-sub">Trademark assignment agreement · Regional tech platform</div>
+          
+          <div class="ccard-skills"><span class="stag">Assignment Drafting</span><span class="stag">IP Transactions</span><span class="stag">Contract Review</span><span class="stag">Tech Sector</span></div>
+          <button class="ccard-toggle" onclick="toggleCase(this)">Read more ↓</button>
+          <div class="ccard-detail">This matter involved formalising the transfer of trademark rights for a high-growth technology platform operating across APAC. The goal was to align IP ownership with the client's commercial structure and regional expansion plans.
+
+I prepared the trademark assignment agreement, ensuring the transfer was clearly documented, commercially workable, and suitable for future recordal. The work helped consolidate ownership of key IP assets and support the client's growth across multiple markets.</div>
+        </div>
+      </div>
+      <div class="ccard reveal" data-cat="privacy">
+        <div class="ccard-img">
+          <div class="carousel" id="c8" data-idx="0">
+            <div class="carousel-track"><div class="carousel-slide"><img src="images/case8-1.jpg" alt="Case 8 image 1"></div><div class="carousel-slide"><img src="images/case8-2.jpg" alt="Case 8 image 2"></div></div>
+            <button class="carousel-btn prev" onclick="carouselMove('c8',-1)" aria-label="Previous">&#8249;</button>
+            <button class="carousel-btn next" onclick="carouselMove('c8',1)" aria-label="Next">&#8250;</button>
+            <div class="carousel-dots"><div class="carousel-dot active" onclick="carouselDot('c8',0)"></div><div class="carousel-dot" onclick="carouselDot('c8',1)"></div></div>
+          </div>
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-top">
+            <span class="ccard-num">Case 08</span>
+            <span class="ccard-badge">Data Privacy</span>
+          </div>
+          <div class="ccard-client">A GLOBAL LUXURY GROUP</div>
+          <div class="ccard-sub">GDPR-aligned privacy notices · HR legal documents</div>
+          
+          <div class="ccard-skills"><span class="stag">Privacy Law</span><span class="stag">GDPR Compliance</span><span class="stag">PDPD</span><span class="stag">HR Legal Docs</span></div>
+          <button class="ccard-toggle" onclick="toggleCase(this)">Read more ↓</button>
+          <div class="ccard-detail">This matter focused on bringing clarity to HR data processing for a global luxury house. I drafted separate privacy notices for job candidates and employees, reflecting the different purposes, lawful bases, retention periods, and data subject rights involved.
+
+The work helped the client strengthen its HR privacy framework and ensure that recruitment and employment data were handled in a more transparent and compliant way.</div>
+        </div>
+      </div>
+      <div class="ccard reveal" data-cat="digital">
+        <div class="ccard-img">
+          <div class="carousel" id="c9" data-idx="0">
+            <div class="carousel-track"><div class="carousel-slide"><img src="images/case9-1.jpg" alt="Case 9 image 1"></div><div class="carousel-slide"><img src="images/case9-2.jpg" alt="Case 9 image 2"></div><div class="carousel-slide"><img src="images/case9-3.jpg" alt="Case 9 image 3"></div><div class="carousel-slide"><img src="images/case9-4.jpg" alt="Case 9 image 4"></div></div>
+            <button class="carousel-btn prev" onclick="carouselMove('c9',-1)" aria-label="Previous">&#8249;</button>
+            <button class="carousel-btn next" onclick="carouselMove('c9',1)" aria-label="Next">&#8250;</button>
+            <div class="carousel-dots"><div class="carousel-dot active" onclick="carouselDot('c9',0)"></div><div class="carousel-dot" onclick="carouselDot('c9',1)"></div><div class="carousel-dot" onclick="carouselDot('c9',2)"></div><div class="carousel-dot" onclick="carouselDot('c9',3)"></div></div>
+          </div>
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-top">
+            <span class="ccard-num">Case 09</span>
+            <span class="ccard-badge">Domain Dispute</span>
+          </div>
+          <div class="ccard-client">GRAB</div>
+          <div class="ccard-sub">UDRP complaint · Cybersquatting · Domain recovery</div>
+          
+          <div class="ccard-skills"><span class="stag">UDRP Proceedings</span><span class="stag">Bad-faith Analysis</span><span class="stag">Legal Drafting</span><span class="stag">Digital Brand Protection</span></div>
+          <button class="ccard-toggle" onclick="toggleCase(this)">Read more ↓</button>
+          <div class="ccard-detail">This matter involved a large-scale domain recovery programme targeting more than 100 bad-faith domain names incorporating the client's trademark. The registrations created recurring online confusion risks and threatened the client's digital brand presence.
+
+I prepared UDRP complaints addressing confusing similarity, lack of legitimate interests, and bad-faith registration and use. The programme achieved an 85%+ success rate, helping the client recover infringing domains and reinforce its online brand protection strategy.</div>
+        </div>
+      </div>
+      <div class="ccard reveal" data-cat="digital advisory">
+        <div class="ccard-img">
+          <div class="carousel" id="c10" data-idx="0">
+            <div class="carousel-track"><div class="carousel-slide"><img src="images/case10-1.jpg" alt="Case 10 image 1"></div><div class="carousel-slide"><img src="images/case10-2.jpg" alt="Case 10 image 2"></div></div>
+            <button class="carousel-btn prev" onclick="carouselMove('c10',-1)" aria-label="Previous">&#8249;</button>
+            <button class="carousel-btn next" onclick="carouselMove('c10',1)" aria-label="Next">&#8250;</button>
+            <div class="carousel-dots"><div class="carousel-dot active" onclick="carouselDot('c10',0)"></div><div class="carousel-dot" onclick="carouselDot('c10',1)"></div></div>
+          </div>
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-top">
+            <span class="ccard-num">Case 10</span>
+            <span class="ccard-badge">Platform Policy</span>
+          </div>
+          <div class="ccard-client">A MAJOR E-COMMERCE PLATFORM</div>
+          <div class="ccard-sub">Anti-counterfeit &amp; knockoff policy · E-commerce platform</div>
+          
+          <div class="ccard-skills"><span class="stag">Platform Policy</span><span class="stag">E-commerce Compliance</span><span class="stag">Anti-counterfeiting</span><span class="stag">Stakeholder Advisory</span></div>
+          <button class="ccard-toggle" onclick="toggleCase(this)">Read more ↓</button>
+          <div class="ccard-detail">This matter focused on helping a major e-commerce platform strengthen its response to counterfeit and knockoff listings.
+
+I drafted a structured policy covering prohibited conduct, seller obligations, detection mechanisms, complaint procedures, and enforcement escalation. The work helped formalise the platform's brand protection framework and align it with international enforcement standards.</div>
+        </div>
+      </div>
+      <div class="ccard reveal" data-cat="training">
+        <div class="ccard-img">
+          <div class="carousel" id="c11" data-idx="0">
+            <div class="carousel-track"><div class="carousel-slide"><img src="images/case11-1.jpg" alt="Case 11 image 1"></div><div class="carousel-slide"><img src="images/case11-2.jpg" alt="Case 11 image 2"></div><div class="carousel-slide"><img src="images/case11-3.jpg" alt="Case 11 image 3"></div><div class="carousel-slide"><img src="images/case11-4.jpg" alt="Case 11 image 4"></div><div class="carousel-slide"><img src="images/case11-5.jpg" alt="Case 11 image 5"></div><div class="carousel-slide"><img src="images/case11-6.jpg" alt="Case 11 image 6"></div><div class="carousel-slide"><img src="images/case11-7.jpg" alt="Case 11 image 7"></div></div>
+            <button class="carousel-btn prev" onclick="carouselMove('c11',-1)" aria-label="Previous">&#8249;</button>
+            <button class="carousel-btn next" onclick="carouselMove('c11',1)" aria-label="Next">&#8250;</button>
+            <div class="carousel-dots"><div class="carousel-dot active" onclick="carouselDot('c11',0)"></div><div class="carousel-dot" onclick="carouselDot('c11',1)"></div><div class="carousel-dot" onclick="carouselDot('c11',2)"></div><div class="carousel-dot" onclick="carouselDot('c11',3)"></div><div class="carousel-dot" onclick="carouselDot('c11',4)"></div><div class="carousel-dot" onclick="carouselDot('c11',5)"></div><div class="carousel-dot" onclick="carouselDot('c11',6)"></div></div>
+          </div>
+        </div>
+        <div class="ccard-body">
+          <div class="ccard-top">
+            <span class="ccard-num">Case 11</span>
+            <span class="ccard-badge">Training</span>
+          </div>
+          <div class="ccard-client">BRAND ID TRAININGS</div>
+          <div class="ccard-sub">Enforcement authorities · Customs officers · Commercial stakeholders</div>
+          <div class="ccard-stats"><div><div class="cstat-val">30+</div><div class="cstat-lbl">Sessions delivered</div></div></div>
+          <div class="ccard-skills"><span class="stag">Training Design</span><span class="stag">Brand Authentication</span><span class="stag">Stakeholder Engagement</span><span class="stag">Capacity Building</span></div>
+          <button class="ccard-toggle" onclick="toggleCase(this)">Read more ↓</button>
+          <div class="ccard-detail">I delivered anti-counterfeiting training to customs officers, enforcement authorities, and commercial stakeholders across APAC.
+
+The programme equipped frontline teams with practical tools to recognise counterfeit indicators, understand enforcement procedures, and support more effective intervention against infringing goods.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="engagement">
+  <div class="engagement-intro reveal">
+    <div>
+      <div class="sec-label">04 · Industry Engagement</div>
+      <h2 class="sec-title">Networks &amp;<br><em>presence.</em></h2>
+    </div>
+    <p class="engagement-sub">IP is a relationship-driven field. Beyond the desk, I've built connections across global brand protection networks, industry associations, and client communities — from INTA annual meetings to ACG events and firm receptions across London and APAC.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gitem reveal">
+      <div class="gitem-bg" style="background-image:url('images/event-1.jpg')"></div>
+      <div class="gitem-caption">
+        <div class="gitem-caption-event">Baker McKenzie Vietnam Year-End Party</div>
+        <div class="gitem-caption-year">2022 · Hanoi, Vietnam</div>
+      </div>
+    </div>
+    <div class="gitem reveal rv1">
+      <div class="gitem-bg" style="background-image:url('images/event-2.jpg')"></div>
+      <div class="gitem-caption">
+        <div class="gitem-caption-event">Baker McKenzie Vietnam 30th Anniversary</div>
+        <div class="gitem-caption-year">2023 · Hanoi, Vietnam</div>
+      </div>
+    </div>
+    <div class="gitem reveal rv2">
+      <div class="gitem-bg" style="background-image:url('images/event-3.jpg')"></div>
+      <div class="gitem-caption">
+        <div class="gitem-caption-event">Baker McKenzie London INTA 2026 Reception</div>
+        <div class="gitem-caption-year">2025 · London, UK</div>
+      </div>
+    </div>
+    <div class="gitem reveal rv3">
+      <div class="gitem-bg" style="background-image:url('images/event-4.jpg')"></div>
+      <div class="gitem-caption">
+        <div class="gitem-caption-event">Baker McKenzie London INTA 2026 Reception</div>
+        <div class="gitem-caption-year">2025 · London, UK</div>
+      </div>
+    </div>
+    <div class="gitem reveal">
+      <div class="gitem-bg" style="background-image:url('images/event-5.jpg')"></div>
+      <div class="gitem-caption">
+        <div class="gitem-caption-event">Ralph Lauren INTA 2026 Reception</div>
+        <div class="gitem-caption-year">2025 · London, UK</div>
+      </div>
+    </div>
+    <div class="gitem reveal rv1">
+      <div class="gitem-bg" style="background-image:url('images/event-6.jpg')"></div>
+      <div class="gitem-caption">
+        <div class="gitem-caption-event">L'Oréal INTA 2026 Reception</div>
+        <div class="gitem-caption-year">2025 · London, UK</div>
+      </div>
+    </div>
+    <div class="gitem reveal rv2">
+      <div class="gitem-bg" style="background-image:url('images/event-7.jpg')"></div>
+      <div class="gitem-caption">
+        <div class="gitem-caption-event">HUGO BOSS INTA 2026 Reception</div>
+        <div class="gitem-caption-year">2025 · London, UK</div>
+      </div>
+    </div>
+    <div class="gitem reveal rv3">
+      <div class="gitem-bg" style="background-image:url('images/event-8.jpg')"></div>
+      <div class="gitem-caption">
+        <div class="gitem-caption-event">ACG × GACG × INTA Global IP Trade Associations Drinks Reception</div>
+        <div class="gitem-caption-year">2025 · London, UK</div>
+      </div>
+    </div>
+    <div class="gitem reveal">
+      <div class="gitem-bg" style="background-image:url('images/event-9.jpg')"></div>
+      <div class="gitem-caption">
+        <div class="gitem-caption-event">REACT × Brand Identification Training</div>
+        <div class="gitem-caption-year">2022 · Vietnam</div>
+      </div>
+    </div>
+    <div class="gitem reveal rv1">
+      <div class="gitem-bg" style="background-image:url('images/event-10.jpg')"></div>
+      <div class="gitem-caption">
+        <div class="gitem-caption-event">Challenge the Fake Finale — UCL × Amazon × ACG × SHADO</div>
+        <div class="gitem-caption-year">2025 · London, UK</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="reveal">
+    <div class="sec-label">05 · How I Work</div>
+    <h2 class="sec-title">How I<br><em>work.</em></h2>
+  </div>
+  <div class="how-grid">
+    <div class="how-card reveal">
+      <div class="how-card-title">Commercially Minded</div>
+      <div class="how-card-line"></div>
+      <div class="how-card-desc">I focus on practical and proportionate solutions aligned with business priorities and operational realities.</div>
+    </div>
+    <div class="how-card reveal rv1">
+      <div class="how-card-title">Cross-Functional</div>
+      <div class="how-card-line"></div>
+      <div class="how-card-desc">Experienced working with legal teams, investigators, customs authorities, platforms, and commercial stakeholders across jurisdictions.</div>
+    </div>
+    <div class="how-card reveal rv2">
+      <div class="how-card-title">Data &amp; Risk Aware</div>
+      <div class="how-card-line"></div>
+      <div class="how-card-desc">Comfortable translating enforcement data and legal findings into actionable business insights and operational reporting.</div>
+    </div>
+    <div class="how-card reveal rv3">
+      <div class="how-card-title">International Perspective</div>
+      <div class="how-card-line"></div>
+      <div class="how-card-desc">Experience supporting multinational brands across different legal and cultural environments throughout APAC.</div>
+    </div>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="reveal"><div class="sec-label">06 · Credentials</div><h2 class="sec-title">Education &amp;<br><em>experience.</em></h2></div>
+  <div class="cred-layout">
+    <div class="reveal"><div class="cred-g-title">Education</div><div class="cred-item"><div class="cred-period">2025 – 2026</div><div class="cred-ttl">Master of Laws (LLM) · IP Law</div><div class="cred-org">University College London (UCL)</div><div class="cred-note">✦ UCL Global Masters Scholarship</div></div><div class="cred-item"><div class="cred-period">2022 – 2023</div><div class="cred-ttl">Professional Lawyer Training Certificate</div><div class="cred-org">Judicial Academy of Vietnam</div></div><div class="cred-item"><div class="cred-period">2017 – 2021</div><div class="cred-ttl">BA International Law &amp; Legal Studies</div><div class="cred-org">Diplomatic Academy of Vietnam</div></div></div>
+    <div class="reveal rv1"><div class="cred-g-title">Professional Experience</div><div class="cred-item"><div class="cred-period">Oct 2021 – Mar 2025</div><div class="cred-ttl">IP Specialist</div><div class="cred-org">Baker McKenzie</div></div><div class="cred-item"><div class="cred-period">Jan – Jul 2021</div><div class="cred-ttl">Legal Intern</div><div class="cred-org">Rouse</div></div><div class="cred-item"><div class="cred-period">Nov 2019 – Jan 2020</div><div class="cred-ttl">Legal Intern</div><div class="cred-org">Vietnam Ministry of Foreign Affairs</div></div></div>
+    <div class="reveal rv2"><div class="cred-g-title">Industry Networks</div><div class="cred-item"><div class="cred-ttl">REACT</div><div class="cred-org">Anti-counterfeiting network</div></div><div class="cred-item"><div class="cred-ttl">INTA</div><div class="cred-org">International Trademark Association</div></div><div class="cred-item"><div class="cred-ttl">ACG</div><div class="cred-org">Anti-Counterfeiting Group</div></div><div class="cred-item"><div class="cred-ttl">World Trademark Review</div><div class="cred-org">Industry publication &amp; network</div></div></div>
+  </div>
+  <div class="lang-section reveal">
+    <div class="lang-section-head">
+      <div class="lang-section-label">Languages</div>
+      <div class="lang-section-divider"></div>
+    </div>
+    <div class="lang-grid">
+      <div class="lang-card">
+        <div class="lang-name">English</div>
+        <div class="lang-level">Fluent</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-name">Vietnamese</div>
+        <div class="lang-level">Native</div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-name">Mandarin</div>
+        <div class="lang-level">Basic</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="reveal">
+    <div class="sec-label">07 · Tools &amp; Platforms</div>
+    <h2 class="sec-title">Tools &amp;<br><em>platforms.</em></h2>
+  </div>
+  <div class="tools-grid">
+    <div class="tool-item reveal"><div class="tool-dot"></div><span class="tool-name">WIPO Global Brand Database</span><span class="tool-cat">TM Search</span></div>
+    <div class="tool-item reveal rv1"><div class="tool-dot"></div><span class="tool-name">Madrid Monitor / eMadrid</span><span class="tool-cat">TM Filing</span></div>
+    <div class="tool-item reveal rv2"><div class="tool-dot"></div><span class="tool-name">EUIPO eSearch</span><span class="tool-cat">TM Search</span></div>
+    <div class="tool-item reveal"><div class="tool-dot"></div><span class="tool-name">UKIPO / USPTO Databases</span><span class="tool-cat">TM Search</span></div>
+    <div class="tool-item reveal rv1"><div class="tool-dot"></div><span class="tool-name">Corsearch</span><span class="tool-cat">TM Watch</span></div>
+    <div class="tool-item reveal rv2"><div class="tool-dot"></div><span class="tool-name">TMNow</span><span class="tool-cat">TM Watch</span></div>
+    <div class="tool-item reveal"><div class="tool-dot"></div><span class="tool-name">Anaqua</span><span class="tool-cat">Portfolio Mgmt</span></div>
+    <div class="tool-item reveal rv1"><div class="tool-dot"></div><span class="tool-name">WHOIS / Domain Lookup</span><span class="tool-cat">Domain</span></div>
+    <div class="tool-item reveal rv2"><div class="tool-dot"></div><span class="tool-name">WIPO UDRP Case Database</span><span class="tool-cat">Domain</span></div>
+    <div class="tool-item reveal"><div class="tool-dot"></div><span class="tool-name">E-commerce Platform Portals</span><span class="tool-cat">Enforcement</span></div>
+    <div class="tool-item reveal rv1"><div class="tool-dot"></div><span class="tool-name">Microsoft Office Suite</span><span class="tool-cat">Productivity</span></div>
+    <div class="tool-item reveal rv2"><div class="tool-dot"></div><span class="tool-name">Google Workspace</span><span class="tool-cat">Productivity</span></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="reveal">
+    <div class="sec-label">08 · Contact</div>
+    <h2 class="contact-h">Let's work on<br>something<br><em>meaningful.</em></h2>
+    <p class="contact-sub">Open to IP Counsel roles, Brand Protection, Copyright, Data Privacy, and Graduate opportunities in IP or commercial law — UK and international.</p>
+    <div class="visa-note">Authorised to work in the UK without visa sponsorship.</div>
+    <div class="open-box">
+      <div class="open-lbl">Currently open to</div>
+      <div class="open-tags">
+        <span class="open-tag">IP Counsel</span>
+        <span class="open-tag">Trademark Prosecution</span>
+        <span class="open-tag">Brand Protection</span>
+        <span class="open-tag">Copyright Advisory</span>
+        <span class="open-tag">Data Privacy</span>
+        <span class="open-tag">UK &amp; International</span>
+      </div>
+    </div>
+  </div>
+  <div class="reveal rv1">
+    <div class="ci"><span class="ci-lbl">Email</span><div><a class="ci-val" href="mailto:dt.phuongthao99@gmail.com" style="display:block;margin-bottom:0.3rem;">dt.phuongthao99@gmail.com</a><a class="ci-val" href="mailto:thi.do.25@ucl.ac.uk" style="display:block;">thi.do.25@ucl.ac.uk</a></div></div>
+    <div class="ci"><span class="ci-lbl">Phone</span><span class="ci-val">+44 7757 643587</span></div>
+    <div class="ci"><span class="ci-lbl">Location</span><span class="ci-val">London, United Kingdom</span></div>
+    <div class="ci"><span class="ci-lbl">LinkedIn</span><a class="ci-val" href="https://www.linkedin.com/in/phuongthao-karine-do/" target="_blank">linkedin.com/in/phuongthao-karine-do</a></div>
+    <div class="ci"><span class="ci-lbl">UCL</span><span class="ci-val">LLM IP Law · 2025–2026</span></div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-l">© 2025 Phuong Thao (Karine) Do · IP Specialist</span>
+  <span class="footer-disc">All client work conducted under professional confidentiality obligations. Case details presented at a general level consistent with publicly available information.</span>
+</footer>
+
+<script>
+
+
+
+function scrollCases(dir){
+  var el = document.getElementById('casesScroll');
+  if(!el) return;
+  var card = el.querySelector('.ccard');
+  if(!card) return;
+  var d = card.offsetWidth + 24;
+  el.scrollBy({ left: d * dir, behavior: 'smooth' });
+}
+
+function carouselMove(id, dir) {
+  const el = document.getElementById(id);
+  if(!el) return;
+  const slides = el.querySelectorAll('.carousel-slide');
+  let idx = parseInt(el.dataset.idx || '0') + dir;
+  if(idx < 0) idx = slides.length - 1;
+  if(idx >= slides.length) idx = 0;
+  el.dataset.idx = idx;
+  el.querySelector('.carousel-track').style.transform = `translateX(-${idx*100}%)`;
+  el.querySelectorAll('.carousel-dot').forEach((d,i) => d.classList.toggle('active', i===idx));
+}
+function carouselDot(id, idx) {
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.dataset.idx = idx;
+  el.querySelector('.carousel-track').style.transform = `translateX(-${idx*100}%)`;
+  el.querySelectorAll('.carousel-dot').forEach((d,i) => d.classList.toggle('active', i===idx));
+}
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+document.querySelectorAll('.fbtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.f;
+    document.querySelectorAll('.ccard').forEach(c => {
+      c.style.display = (f==='all' || c.dataset.cat.includes(f)) ? '' : 'none';
+    });
+  });
+});
+
+function toggleCase(btn) {
+  const d = btn.nextElementSibling;
+  d.classList.toggle('open');
+  btn.textContent = d.classList.contains('open') ? 'Read less ↑' : 'Read more ↓';
+}
+
+function previewPortrait(input) {
+  const file = input.files[0]; if(!file) return;
+  const r = new FileReader();
+  r.onload = e => {
+    const slot = document.getElementById('portrait-slot');
+    slot.querySelector('.portrait-placeholder').style.display = 'none';
+    let img = slot.querySelector('img');
+    if(!img){ img = document.createElement('img'); slot.appendChild(img); }
+    img.src = e.target.result;
+  };
+  r.readAsDataURL(file);
+}
+
+function previewImg(input) {
+  const file = input.files[0]; if(!file) return;
+  const r = new FileReader();
+  r.onload = e => {
+    const w = input.closest('.ccard-img');
+    w.style.backgroundImage = `url(${e.target.result})`;
+    w.style.backgroundSize = 'cover';
+    w.style.backgroundPosition = 'center';
+    w.querySelector('.ccard-img-icon').style.display = 'none';
+    w.querySelector('.ccard-img-label').style.display = 'none';
+  };
+  r.readAsDataURL(file);
+}
+
+function previewGallery(input, id) {
+  const file = input.files[0]; if(!file) return;
+  const r = new FileReader();
+  r.onload = e => {
+    const el = document.getElementById(id);
+    el.style.backgroundImage = `url(${e.target.result})`;
+    el.style.backgroundSize = 'cover';
+    el.style.backgroundPosition = 'center';
+    el.querySelector('.gitem-placeholder').style.display = 'none';
+    el.querySelector('.gitem-bg').style.display = 'none';
+  };
+  r.readAsDataURL(file);
+}
+
+function updateCaption(id, val) {
+  const el = document.getElementById(id);
+  if(el) el.textContent = val || (id.includes('ev') ? 'Event name' : 'Year · Location');
+}
+
+document.querySelectorAll('.gitem').forEach(item => {
+  item.addEventListener('dblclick', e => {
+    e.preventDefault();
+    const num = item.id.replace('g','');
+    const edit = document.getElementById('edit'+num);
+    if(edit) edit.classList.toggle('show');
+  });
+});
+
+</script>
+
+</body>
+</html>
