@@ -878,6 +878,108 @@ footer{
   .lang-card:last-child{border-bottom:none;}
 }}
 
+
+/* ── LIGHTBOX ── */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(20,17,16,0.95);
+  z-index:1000;
+  display:none;
+  align-items:center;justify-content:center;
+  padding:2rem;
+  cursor:zoom-out;
+  animation:lbFadeIn 0.25s ease;
+}
+.lightbox.open{display:flex;}
+@keyframes lbFadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+.lb-content{
+  max-width:90vw;max-height:90vh;
+  display:flex;flex-direction:column;
+  align-items:center;
+  cursor:default;
+}
+.lb-img{
+  max-width:90vw;
+  max-height:80vh;
+  object-fit:contain;
+  display:block;
+  box-shadow:0 24px 60px rgba(0,0,0,0.5);
+}
+.lb-info{
+  margin-top:1.5rem;
+  text-align:center;
+  color:#fff;
+}
+.lb-event{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:500;
+  line-height:1.3;
+  margin-bottom:0.4rem;
+  color:#fff;
+}
+.lb-year{
+  font-family:'DM Mono',monospace;
+  font-size:0.65rem;letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.75);
+}
+.lb-close{
+  position:absolute;
+  top:1.5rem;right:1.5rem;
+  width:44px;height:44px;
+  background:rgba(255,255,255,0.1);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:50%;
+  font-size:1.6rem;line-height:1;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+  z-index:10;
+}
+.lb-close:hover{background:rgba(255,255,255,0.22);}
+.lb-prev,.lb-next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:54px;height:54px;
+  background:rgba(255,255,255,0.1);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:50%;
+  font-size:1.8rem;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+  z-index:10;
+  font-family:'DM Mono',monospace;
+  line-height:1;
+}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,0.22);}
+.lb-prev{left:1.5rem;}
+.lb-next{right:1.5rem;}
+.lb-counter{
+  position:absolute;
+  bottom:1.5rem;left:50%;
+  transform:translateX(-50%);
+  font-family:'DM Mono',monospace;
+  font-size:0.62rem;letter-spacing:0.16em;
+  color:rgba(255,255,255,0.7);
+  text-transform:uppercase;
+}
+body.lb-open{overflow:hidden;}
+@media(max-width:700px){
+  .lb-prev,.lb-next{width:40px;height:40px;font-size:1.3rem;}
+  .lb-prev{left:0.6rem;}
+  .lb-next{right:0.6rem;}
+  .lb-close{top:0.8rem;right:0.8rem;}
+  .lb-event{font-size:1rem;}
+}
+
 </style>
 </head>
 <body>
@@ -1280,70 +1382,70 @@ The programme equipped frontline teams with practical tools to recognise counter
     <p class="engagement-sub">IP is a relationship-driven field. Beyond the desk, I've built connections across global brand protection networks, industry associations, and client communities — from INTA annual meetings to ACG events and firm receptions across London and APAC.</p>
   </div>
   <div class="gallery-grid">
-    <div class="gitem reveal">
+    <div class="gitem reveal" onclick="openLightbox(1)" style="cursor:zoom-in">
       <div class="gitem-bg" style="background-image:url('images/event-1.jpg')"></div>
       <div class="gitem-caption">
         <div class="gitem-caption-event">Baker McKenzie Vietnam Year-End Party</div>
         <div class="gitem-caption-year">2022 · Hanoi, Vietnam</div>
       </div>
     </div>
-    <div class="gitem reveal rv1">
+    <div class="gitem reveal rv1" onclick="openLightbox(2)" style="cursor:zoom-in">
       <div class="gitem-bg" style="background-image:url('images/event-2.jpg')"></div>
       <div class="gitem-caption">
         <div class="gitem-caption-event">Baker McKenzie Vietnam 30th Anniversary</div>
         <div class="gitem-caption-year">2023 · Hanoi, Vietnam</div>
       </div>
     </div>
-    <div class="gitem reveal rv2">
+    <div class="gitem reveal rv2" onclick="openLightbox(3)" style="cursor:zoom-in">
       <div class="gitem-bg" style="background-image:url('images/event-3.jpg')"></div>
       <div class="gitem-caption">
         <div class="gitem-caption-event">Baker McKenzie London INTA 2026 Reception</div>
         <div class="gitem-caption-year">2026 · London, UK</div>
       </div>
     </div>
-    <div class="gitem reveal rv3">
+    <div class="gitem reveal rv3" onclick="openLightbox(4)" style="cursor:zoom-in">
       <div class="gitem-bg" style="background-image:url('images/event-4.jpg')"></div>
       <div class="gitem-caption">
         <div class="gitem-caption-event">Baker McKenzie London INTA 2026 Reception</div>
         <div class="gitem-caption-year">2026 · London, UK</div>
       </div>
     </div>
-    <div class="gitem reveal">
+    <div class="gitem reveal" onclick="openLightbox(5)" style="cursor:zoom-in">
       <div class="gitem-bg" style="background-image:url('images/event-5.jpg')"></div>
       <div class="gitem-caption">
         <div class="gitem-caption-event">Ralph Lauren INTA 2026 Reception</div>
         <div class="gitem-caption-year">2026 · London, UK</div>
       </div>
     </div>
-    <div class="gitem reveal rv1">
+    <div class="gitem reveal rv1" onclick="openLightbox(6)" style="cursor:zoom-in">
       <div class="gitem-bg" style="background-image:url('images/event-6.jpg')"></div>
       <div class="gitem-caption">
         <div class="gitem-caption-event">L'Oréal INTA 2026 Reception</div>
         <div class="gitem-caption-year">2026 · London, UK</div>
       </div>
     </div>
-    <div class="gitem reveal rv2">
+    <div class="gitem reveal rv2" onclick="openLightbox(7)" style="cursor:zoom-in">
       <div class="gitem-bg" style="background-image:url('images/event-7.jpg')"></div>
       <div class="gitem-caption">
         <div class="gitem-caption-event">HUGO BOSS INTA 2026 Reception</div>
         <div class="gitem-caption-year">2026 · London, UK</div>
       </div>
     </div>
-    <div class="gitem reveal rv3">
+    <div class="gitem reveal rv3" onclick="openLightbox(8)" style="cursor:zoom-in">
       <div class="gitem-bg" style="background-image:url('images/event-8.jpg')"></div>
       <div class="gitem-caption">
         <div class="gitem-caption-event">ACG × GACG × INTA Global IP Trade Associations Drinks Reception</div>
         <div class="gitem-caption-year">2025 · London, UK</div>
       </div>
     </div>
-    <div class="gitem reveal">
+    <div class="gitem reveal" onclick="openLightbox(9)" style="cursor:zoom-in">
       <div class="gitem-bg" style="background-image:url('images/event-9.jpg')"></div>
       <div class="gitem-caption">
         <div class="gitem-caption-event">REACT × Brand Identification Training</div>
         <div class="gitem-caption-year">2022 · Vietnam</div>
       </div>
     </div>
-    <div class="gitem reveal rv1">
+    <div class="gitem reveal rv1" onclick="openLightbox(10)" style="cursor:zoom-in">
       <div class="gitem-bg" style="background-image:url('images/event-10.jpg')"></div>
       <div class="gitem-caption">
         <div class="gitem-caption-event">Challenge the Fake Finale — UCL × Amazon × ACG × SHADO</div>
@@ -1573,7 +1675,71 @@ document.querySelectorAll('.gitem').forEach(item => {
   });
 });
 
+
+// LIGHTBOX
+const lbEvents = [
+  {src:'images/event-1.jpg', event:'Baker McKenzie Vietnam Year-End Party', year:'2022 · Hanoi, Vietnam'},
+  {src:'images/event-2.jpg', event:'Baker McKenzie Vietnam 30th Anniversary', year:'2023 · Hanoi, Vietnam'},
+  {src:'images/event-3.jpg', event:'Baker McKenzie London INTA 2026 Reception', year:'2026 · London, UK'},
+  {src:'images/event-4.jpg', event:'Baker McKenzie London INTA 2026 Reception', year:'2026 · London, UK'},
+  {src:'images/event-5.jpg', event:'Ralph Lauren INTA 2026 Reception', year:'2026 · London, UK'},
+  {src:'images/event-6.jpg', event:"L'Oréal INTA 2026 Reception", year:'2026 · London, UK'},
+  {src:'images/event-7.jpg', event:'HUGO BOSS INTA 2026 Reception', year:'2026 · London, UK'},
+  {src:'images/event-8.jpg', event:'ACG × GACG × INTA Global IP Trade Associations Drinks Reception', year:'2025 · London, UK'},
+  {src:'images/event-9.jpg', event:'REACT × Brand Identification Training', year:'2022 · Vietnam'},
+  {src:'images/event-10.jpg', event:'Challenge the Fake Finale — UCL × Amazon × ACG × SHADO', year:'2026 · London, UK'},
+];
+let lbIdx = 0;
+function openLightbox(n){
+  lbIdx = n - 1;
+  renderLb();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.classList.add('lb-open');
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.classList.remove('lb-open');
+}
+function closeLightboxOnBg(e){
+  if(e.target.id === 'lightbox') closeLightbox();
+}
+function lbNav(dir){
+  lbIdx = (lbIdx + dir + lbEvents.length) % lbEvents.length;
+  renderLb();
+}
+function renderLb(){
+  const ev = lbEvents[lbIdx];
+  document.getElementById('lbImg').src = ev.src;
+  document.getElementById('lbImg').alt = ev.event;
+  document.getElementById('lbEvent').textContent = ev.event;
+  document.getElementById('lbYear').textContent = ev.year;
+  document.getElementById('lbCounter').textContent = (lbIdx + 1) + ' / ' + lbEvents.length;
+}
+// Keyboard navigation
+document.addEventListener('keydown', function(e){
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowLeft') lbNav(-1);
+  if(e.key === 'ArrowRight') lbNav(1);
+});
+
 </script>
+
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+  <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+  <button class="lb-prev" onclick="lbNav(-1); event.stopPropagation()" aria-label="Previous">&#8249;</button>
+  <button class="lb-next" onclick="lbNav(1); event.stopPropagation()" aria-label="Next">&#8250;</button>
+  <div class="lb-content" onclick="event.stopPropagation()">
+    <img class="lb-img" id="lbImg" src="" alt="">
+    <div class="lb-info">
+      <div class="lb-event" id="lbEvent"></div>
+      <div class="lb-year" id="lbYear"></div>
+    </div>
+  </div>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
 
 </body>
 </html>
